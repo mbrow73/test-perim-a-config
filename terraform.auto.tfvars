@@ -45,4 +45,19 @@ ingress_policies = [
       }
     }
   }]
-egress_policies  = []
+egress_policies  = [
+  {
+    from = {
+      identity_type = ""
+      identities = ["serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"]
+    }
+    to = {
+      resources = ["projects/1826359283"]
+      operations = {
+        "logging.googleapis.com" = {
+          methods = ["*"]
+          permissions = []
+        }
+      }
+    }
+  }]
