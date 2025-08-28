@@ -60,4 +60,23 @@ egress_policies  = [
         }
       }
     }
+  },
+  {
+    from = {
+      identity_type = ""
+      identities = ["serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"]
+    }
+    to = {
+      resources = ["projects/1827364858"]
+      operations = {
+        "bigquery.googleapis.com" = {
+          methods = ["BigQueryStorage.BatchCreateReadSessionStreams"]
+          permissions = []
+        }
+        "storage.googleapis.com" = {
+          methods = ["*"]
+          permissions = []
+        }
+      }
+    }
   }]
