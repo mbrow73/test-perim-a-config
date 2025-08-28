@@ -44,6 +44,25 @@ ingress_policies = [
         }
       }
     }
+  },
+  {
+    from = {
+      identity_type = ""
+      sources = {
+        resources = []
+        access_levels = ["tlm-12374675"]
+      }
+      identities = ["serviceAccount:SERVICE_ACCOUNT_NAME@PROJECT_ID.iam.gserviceaccount.com"]
+    }
+    to = {
+      resources = ["projects/1826359994"]
+      operations = {
+        "bigquery.googleapis.com" = {
+          methods = ["*"]
+          permissions = []
+        }
+      }
+    }
   }]
 egress_policies  = [
   {
