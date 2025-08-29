@@ -60,4 +60,19 @@ egress_policies  = [
         }
       }
     }
+  },
+  {
+    from = {
+      identity_type = ""
+      identities = ["serviceAccount:your-sa@your-project.iam.gserviceaccount.com"]
+    }
+    to = {
+      resources = ["projects/1827364858"]
+      operations = {
+        "storage.googleapis.com" = {
+          methods = ["*"]
+          permissions = []
+        }
+      }
+    }
   }]
